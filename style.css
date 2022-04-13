@@ -33,7 +33,7 @@ body {
 
 }
 
-img {
+.header img {
     width: 53px;
     height: 50px;
 }
@@ -59,7 +59,7 @@ img {
     margin: 17px;
 }
 
-input {
+.baseboard input {
     border: none;
     font-size: 18px;
     font-style: italic;
@@ -67,7 +67,7 @@ input {
     height: 30px;
 }
 
-input:focus{
+.baseboard input:focus{
     box-shadow: 0 0 0 0;
     outline: 0;
     font-style: normal;
@@ -162,4 +162,64 @@ h3 {
 .sidebar ion-icon {
     margin: 0 8px 0 18px;
     font-size: 25px;
+}
+
+.login {
+    position: fixed;
+    top:0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: #fff;
+    z-index: 2;
+}
+
+.login {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.login input{
+    height: 54px;
+    width: 260px;
+    margin-bottom: 15px;
+    margin-top: 94px;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.login input:focus { 
+    box-shadow: 0 0 0 0;
+    outline: 0;
+
+}
+
+
+.login img {
+    margin-top: 72px;
+}
+
+.name {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 295px;
+}
+
+button {
+    height: 45px;
+    width: 109px;
+    font-size: 18px;
+    color: #696969;
+    border: none;
+    background-color: #E7E7E7;
+    border-radius: 9px;
+}
+
+ion-icon:hover {
+    color:#696969;
 }

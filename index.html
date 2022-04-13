@@ -14,79 +14,70 @@
 <body>
 
 
-    <div class="sidebar ">
-        <div> 
-        </div>
-        <div>
-            <div class="text font-weight700">
-                <h3>Escolha um contato</h3>
-                <h3>para enviar mensagem:</h3>
+    <div>
+        <div class="login">
+            <img src="imagens/logo 2.png" alt="">
+            <div class="name">
+                <input placeholder= "Digite seu nome" type="text">
+                <button onclick="logIn(this)">Enter</button>
             </div>
-            <div class="display-flex">
-                <ion-icon name="people"></ion-icon>
-                <h3>Todos</h3>
-            </div>
-            <div class="display-flex">
-                <ion-icon name="person-circle"></ion-icon>
-                <h3>João</h3>
-            </div>
-            <div class="display-flex">
-                <ion-icon name="person-circle"></ion-icon>
-                <h3>Maria</h3>
-            </div>
-
-            <div class="text font-weight700">
-                <h3>Escolha a visibilidade:</h3>
-            </div>
-
         </div>
     </div>
 
 
+    <div class="hidden">
+        <div class="sidebar">
+            <div onclick="hiddenSidebar(this)">  
+            </div>
+            <div>
+                <div class="text font-weight700">
+                    <h3>Escolha um contato</h3>
+                    <h3>para enviar mensagem:</h3>
+                </div>
+                <div class="display-flex">
+                    <ion-icon name="people"></ion-icon>
+                    <h3>Todos</h3>
+                </div>
+                <div class="display-flex">
+                    <ion-icon name="person-circle"></ion-icon>
+                    <h3>João</h3>
+                </div>
+                <div class="display-flex">
+                    <ion-icon name="person-circle"></ion-icon>
+                    <h3>Maria</h3>
+                </div>
+
+                <div class="text font-weight700">
+                    <h3>Escolha a visibilidade:</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
 
     <div class="container">
-
-
-
-
-
-
-
-
 
         <div class="header"> 
             <div>
                 <img src="imagens/favicon.png" alt="">
-                <ion-icon name="people"></ion-icon>
+                <ion-icon onclick = "showSidebar(this)" name="people"></ion-icon>
             </div>
         </div>
         <div class="spacing"></div>
         
         
-        <div class="menssage status">
-            <p> <span>(09:22:28) </span> <strong>João</strong> entra na sala...</p>
-        </div>
-        <div class="menssage normal">
-            <p> <span>(09:22:28) </span> <strong>Maria</strong> para <strong>João</strong> : Oi João :) </p>
-        </div>
-    
-        <div class="menssage normal">
-            <p> <span>(09:22:28) </span> <strong>João</strong> para <strong>Todos</strong> : Bom dia </p>
+        <div class="container-menssage">
+
         </div>
 
-        <div class="menssage private">
-            <p> <span>(09:22:28) </span> <strong>João</strong> reservadamente para <strong>Maria</strong>: Oi gatinha quer tc? </p>
-        </div>
-
-
-        <div class="baseboard"> 
-            <div>
-                <input placeholder="Escreva aqui..." type="text">
-                <ion-icon name="paper-plane-outline"></ion-icon>
+            <div class="baseboard"> 
+                <div>
+                    <input placeholder="Escreva aqui..." type="text">
+                    <ion-icon name="paper-plane-outline"></ion-icon>
+                </div>
             </div>
-        </div>
-    
-        
+
     
     
     
@@ -109,7 +100,7 @@
     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
