@@ -2,22 +2,23 @@ let mensagens = [];
 let nome;
 
 function showSidebar(iconesidebar){
-    let show = document.querySelector(".sidebar").parentNode
+    const show = document.querySelector(".sidebar").parentNode
     show.classList.remove("hidden")
     searchPeople()
 }
 
 function hiddenSidebar(divsidebar){
-    let hidden = document.querySelector(".sidebar").parentNode
+    const hidden = document.querySelector(".sidebar").parentNode
     hidden.classList.add("hidden")
+
 }
 
 function SearchMessage(){
     let promise = axios.get("https://mock-api.driven.com.br/api/v6/uol/messages");
     promise.then( function (response){
-        let mensagens = response.data
-        WriteMenssageHTML(mensagens)
-        scroll()
+        let mensagens = response.data;
+        WriteMenssageHTML(mensagens);
+        scroll();
     });
 }
 
@@ -36,22 +37,32 @@ function typeOfMessage(typeMessage){
 function AtualizarMensagens(){
     setInterval(Connection, 5000);
     setInterval(SearchMessage, 3000);
+    setInterval(searchPeople, 5000);
 }
 
 function WriteMenssageHTML(mensagens) {
-    let containerMessager = document.querySelector(".container-menssage")
-    containerMessager.innerHTML = ' '
+    let containerMessager = document.querySelector(".container-menssage");
+    containerMessager.innerHTML = ' ';
+    
     for (let i = 0; i < mensagens.length; i++){
-        let typeMessage = mensagens[i].type
-        containerMessager.innerHTML +=  `
-        <div class="menssage ${typeOfMessage(typeMessage)}">
-            <p> <span> (${mensagens[i].time})</span> <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong> : ${mensagens[i].text} </p>
-        </div>`
+        let typeMessage = mensagens[i].type;
+        if (typeMessage === 'private_message' && (mensagens[i].to === nome || mensagens[i].from === nome)){
+            containerMessager.innerHTML +=  `
+            <div class="menssage ${typeOfMessage(typeMessage)}">
+                <p> <span> (${mensagens[i].time})</span> <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong> : ${mensagens[i].text} </p>
+            </div>`
+        }
+        if (typeMessage === 'message' || typeMessage === 'status'){
+            containerMessager.innerHTML +=  `
+            <div class="menssage ${typeOfMessage(typeMessage)}">
+                <p> <span> (${mensagens[i].time})</span> <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong> : ${mensagens[i].text} </p>
+            </div>`
+        }
     }
 }
 
 function logIn() {
-    let nome = document.querySelector(".initial input").value 
+    nome = document.querySelector(".initial input").value;
     const primeira = document.querySelector(".initial");
     const segunda = document.querySelector(".loading");
 
@@ -69,12 +80,12 @@ function logIn() {
 }
 
 function removeloading() {
-    const loginparentnode = document.querySelector(".login").parentNode
-    loginparentnode.classList.add("hidden")
+    const loginparentnode = document.querySelector(".login").parentNode;
+    loginparentnode.classList.add("hidden");
 }
 
 function dealWithError(){
-    document.querySelector(".initial").innerHTML += `<p class="erro-login"> Erro ! Já existe alguem com o mesmo nome, tente com outro nome. </p>`
+    document.querySelector(".initial").innerHTML += `<p class="erro-login"> Erro ! Já existe alguem com o mesmo nome, tente com outro nome. </p>`;
     
 }
 
@@ -99,7 +110,7 @@ function sendMessage(){
         })
         send.then(function (response){
             response.data;
-            AtualizarMensagens()
+            SearchMessage();
         })
         document.querySelector(".baseboard input").value = ''
         send.catch(ErrorMensage);
@@ -107,8 +118,8 @@ function sendMessage(){
 }
 
 function ErrorMensage(){
-    alert("Usuário desconectado")
-    window.location.reload()
+    alert("Usuário desconectado");
+    window.location.reload();
 }
 
 function scroll() {
@@ -120,29 +131,29 @@ function scroll() {
 function enterlogin(event){
     const keyCode = event.which;
     if (keyCode == 13) {
-      document.querySelector(".login button").click()
+      document.querySelector(".login button").click();
     }
 }
 
 function entermenssage(event){
     const Tecla = event.which;
     if (Tecla == 13){
-        document.querySelector(".baseboard ion-icon").click()
+        document.querySelector(".baseboard ion-icon").click();
     }
 } 
 
-
 function searchPeople(){
-    let people = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants")
+    let people = axios.get("https://mock-api.driven.com.br/api/v6/uol/participants");
     people.then(function(response){
         let online = response.data; 
-        writeSideBar(online)
+        writeSideBar(online);
+
     })
 }
 
 function writeSideBar(online){
-    let onlinePeople = document.querySelector(".online-people")
-    onlinePeople.innerHTML = ' '
+    let onlinePeople = document.querySelector(".online-people");
+    onlinePeople.innerHTML = ' ';
     for (let i = 0; i < online.length; i++){
     onlinePeople.innerHTML +=  `
         <div class="display-flex">

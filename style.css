@@ -122,7 +122,6 @@ span {
     top: 0;
     left: 0;
     z-index: 3;
-    overflow: scroll;
 }
 
 .sidebar > div:nth-child(1){
@@ -134,6 +133,14 @@ span {
     background-color: #fff;
     width: 70%;
 }
+
+.online-people{
+    height: 60%;
+    overflow: scroll;
+    width: 100%;
+}
+
+
 .text {
     width: 100%;
     height: 84px;
@@ -199,6 +206,7 @@ h3 {
 }
 
 
+
 .login img {
     margin-top: 72px;
 }
@@ -209,6 +217,11 @@ h3 {
     flex-direction: column;
     align-items: center;
     margin-bottom: 295px;
+}
+
+
+.check {
+    color: green;
 }
 
 
@@ -234,7 +247,7 @@ ion-icon:hover {
 .container-menssage{
     width: 100%;
     margin-bottom: 90px;
-    overflow-x: scroll;
+    overflow: scroll;
 }
 
 .erro-login {
