@@ -1,15 +1,13 @@
 let mensagens = [];
 let nome;
-let ultimo = '';
-let penultimo = '';
 
-function showSidebar(iconesidebar){
-    const show = document.querySelector(".sidebar").parentNode
-    show.classList.remove("hidden")
-    searchPeople()
+function showSidebar(){
+    const show = document.querySelector(".sidebar").parentNode;
+    show.classList.remove("hidden");
+    searchPeople();
 }
 
-function hiddenSidebar(divsidebar){
+function hiddenSidebar(){
     const hidden = document.querySelector(".sidebar").parentNode
     hidden.classList.add("hidden")
 
@@ -77,7 +75,7 @@ function logIn() {
         primeira.classList.add("hidden");
         segunda.classList.remove("hidden");
         AtualizarMensagens();
-        setTimeout(removeloading, 3000)
+        setTimeout(removeloading, 3000);
     });
     promise2.catch(dealWithError);
 }
@@ -115,7 +113,7 @@ function sendMessage(){
             response.data;
             SearchMessage();
         })
-        document.querySelector(".baseboard input").value = ''
+        document.querySelector(".baseboard input").value = '';
         send.catch(ErrorMensage);
     }
 }
@@ -128,7 +126,7 @@ function ErrorMensage(){
 function scroll() {
     const chat  = document.querySelector(".container-menssage");
     const ultimochat = chat.lastElementChild;
-    ultimochat.scrollIntoView()
+    ultimochat.scrollIntoView();
 }
 
 function enterlogin(event){
