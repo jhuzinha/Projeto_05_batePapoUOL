@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -17,9 +17,15 @@
     <div>
         <div class="login">
             <img src="imagens/logo 2.png" alt="">
-            <div class="name">
-                <input placeholder= "Digite seu nome" type="text">
-                <button onclick="logIn(this)">Enter</button>
+            <div>
+                <div class="initial">
+                    <input placeholder= "Digite seu nome" type="text" onkeydown="enterlogin(event)">
+                    <button onclick="logIn(this)">Enter</button>
+                </div>
+                <div class="loading hidden">
+                   <img src="imagens/preloader.gif" alt="">
+                   <h5>Entrando...</h5>
+                </div>
             </div>
         </div>
     </div>
@@ -38,17 +44,21 @@
                     <ion-icon name="people"></ion-icon>
                     <h3>Todos</h3>
                 </div>
-                <div class="display-flex">
-                    <ion-icon name="person-circle"></ion-icon>
-                    <h3>João</h3>
-                </div>
-                <div class="display-flex">
-                    <ion-icon name="person-circle"></ion-icon>
-                    <h3>Maria</h3>
+
+                <div class="online-people">
+
                 </div>
 
                 <div class="text font-weight700">
                     <h3>Escolha a visibilidade:</h3>
+                </div> 
+                <div class="display-flex">
+                    <ion-icon name="lock-open"></ion-icon>
+                    <h3>Público</h3>
+                </div>
+                <div class="display-flex">
+                    <ion-icon name="lock-closed"></ion-icon>
+                    <h3>Reservadamente</h3>
                 </div>
 
             </div>
@@ -71,12 +81,13 @@
 
         </div>
 
-            <div class="baseboard"> 
+
+        <div class="baseboard"> 
                 <div>
-                    <input placeholder="Escreva aqui..." type="text">
-                    <ion-icon name="paper-plane-outline"></ion-icon>
+                    <input placeholder="Escreva aqui..." type="text" onkeydown="entermenssage(event)">
+                    <ion-icon  onclick='sendMessage(this)' name="paper-plane-outline"></ion-icon>
                 </div>
-            </div>
+        </div>
 
     
     
@@ -84,18 +95,6 @@
     
     
     </div>
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>

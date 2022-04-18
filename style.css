@@ -21,6 +21,7 @@ body {
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 1;
 
 }
 
@@ -49,6 +50,7 @@ body {
     box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
     display: flex;
     justify-content: space-between;
+    z-index: 1;
 }
 
 .baseboard div {
@@ -88,6 +90,7 @@ body {
     line-height: 20px;
     margin-bottom: 4px;
     font-weight: 400;
+    word-break: break-word;
 }
 .status {
     background-color: #DCDCDC;
@@ -107,10 +110,8 @@ p {
 
 span {
     color: gray;
-}
 
-.hidden {
-    display: none;
+
 }
 
 .sidebar {
@@ -120,8 +121,8 @@ span {
     position: fixed;
     top: 0;
     left: 0;
-    z-index: 1;
-
+    z-index: 3;
+    overflow: scroll;
 }
 
 .sidebar > div:nth-child(1){
@@ -202,12 +203,18 @@ h3 {
     margin-top: 72px;
 }
 
-.name {
+.initial , .loading{
     display: flex;
     justify-content: center;
     flex-direction: column;
     align-items: center;
     margin-bottom: 295px;
+}
+
+
+.loading img{
+    width: 300px;
+    height: 150px;
 }
 
 button {
@@ -222,4 +229,24 @@ button {
 
 ion-icon:hover {
     color:#696969;
+}
+
+.container-menssage{
+    width: 100%;
+    margin-bottom: 90px;
+    overflow-x: scroll;
+}
+
+.erro-login {
+    color: red;
+    font-size: 10px;
+}
+
+h5 {
+    font-size: 20px;
+}
+
+
+.hidden {
+    display: none;
 }
