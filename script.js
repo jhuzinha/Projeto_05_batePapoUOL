@@ -1,5 +1,7 @@
 let mensagens = [];
 let nome;
+let ultimo = '';
+let penultimo = '';
 
 function showSidebar(iconesidebar){
     const show = document.querySelector(".sidebar").parentNode
@@ -20,6 +22,7 @@ function SearchMessage(){
         WriteMenssageHTML(mensagens);
         scroll();
     });
+    
 }
 
 function typeOfMessage(typeMessage){
@@ -49,7 +52,7 @@ function WriteMenssageHTML(mensagens) {
         if (typeMessage === 'private_message' && (mensagens[i].to === nome || mensagens[i].from === nome)){
             containerMessager.innerHTML +=  `
             <div class="menssage ${typeOfMessage(typeMessage)}">
-                <p> <span> (${mensagens[i].time})</span> <strong>${mensagens[i].from}</strong> para <strong>${mensagens[i].to}</strong> : ${mensagens[i].text} </p>
+                <p> <span> (${mensagens[i].time})</span> <strong>${mensagens[i].from}</strong> (Reservadamente) para <strong>${mensagens[i].to}</strong> : ${mensagens[i].text} </p>
             </div>`
         }
         if (typeMessage === 'message' || typeMessage === 'status'){
@@ -125,7 +128,7 @@ function ErrorMensage(){
 function scroll() {
     const chat  = document.querySelector(".container-menssage");
     const ultimochat = chat.lastElementChild;
-    ultimochat.scrollIntoView();   
+    ultimochat.scrollIntoView()
 }
 
 function enterlogin(event){
